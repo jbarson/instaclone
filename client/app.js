@@ -5,7 +5,8 @@ function config($routeProvider){
     $routeProvider
         .when('/',{
             templateUrl: 'views/home.html',
-            //controller: 'Home' 
+            controller: 'Home',
+            controllerAs: 'home' 
         })
         .when('/login',{
             templateUrl: 'views/login.html'
