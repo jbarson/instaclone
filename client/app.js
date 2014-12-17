@@ -1,7 +1,7 @@
-angular.module('Instagram',['ngRoute','ngMessages'])
+angular.module('Instagram',['ngRoute','ngMessages','satellizer'])
     .config(config);
 
-function config($routeProvider){
+function config($routeProvider,$authProvider){
     $routeProvider
         .when('/',{
             templateUrl: 'views/home.html',
@@ -21,4 +21,16 @@ function config($routeProvider){
             //controller: 'Detail' 
         })
         .otherwise('/');
+    $authProvider.loginUrl = 'http://localhost:3000/auth/login';
+    $authProvider.signupUrl = 'http://localhost:3000/auth/signup';
+    $authProvider.oauth2({
+        name: 'instagram',
+        url: "http://localhost:3000/auth/instagram",
+        redirectUri: 'http://localhost:8000',
+        clientId: '799d1f8ea0e44ac8b70e7f18fcacedd1',
+        requiredUrlParams: ['scope'],
+  scope: ['likes'],
+  scopeDelimiter: '+',
+  authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
+    })
 }
