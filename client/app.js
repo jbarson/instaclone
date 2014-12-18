@@ -29,8 +29,8 @@ function config($routeProvider,$authProvider){
         redirectUri: 'http://localhost:8000',
         clientId: '799d1f8ea0e44ac8b70e7f18fcacedd1',
         requiredUrlParams: ['scope'],
-  scope: ['likes'],
-  scopeDelimiter: '+',
-  authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
+        scope: ['likes'],
+        scopeDelimiter: '+',
+        authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
     })
 }
